@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces;
+package com.yemmback.primefaces;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

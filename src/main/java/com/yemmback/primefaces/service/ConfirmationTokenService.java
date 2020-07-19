@@ -1,7 +1,7 @@
-package com.codenotfound.primefaces.service;
+package com.yemmback.primefaces.service;
 
-import com.primestap.primefaces.model.ConfirmationToken;
-import com.primestap.primefaces.repository.ConfirmationTokenRepository;
+import com.yemmback.primefaces.model.ConfirmationToken;
+import com.yemmback.primefaces.repository.ConfirmationTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

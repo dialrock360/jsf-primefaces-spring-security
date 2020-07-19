@@ -1,7 +1,7 @@
-package com.codenotfound.primefaces.repository;
+package com.yemmback.primefaces.repository;
 
 
-import com.primestap.primefaces.model.Car;
+import com.yemmback.primefaces.model.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

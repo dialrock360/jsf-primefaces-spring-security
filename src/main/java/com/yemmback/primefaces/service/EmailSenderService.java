@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.service;
+package com.yemmback.primefaces.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.mail.SimpleMailMessage;

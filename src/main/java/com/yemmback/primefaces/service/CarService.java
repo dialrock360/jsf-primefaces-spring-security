@@ -1,10 +1,10 @@
-package com.codenotfound.primefaces.service;
+package com.yemmback.primefaces.service;
 
-import com.primestap.primefaces.model.Brand;
-import com.primestap.primefaces.model.Car;
-import com.primestap.primefaces.model.colections.Color;
-import com.primestap.primefaces.repository.BrandRepository;
-import com.primestap.primefaces.repository.CarRepository;
+import com.yemmback.primefaces.model.Brand;
+import com.yemmback.primefaces.model.Car;
+import com.yemmback.primefaces.model.colections.Color;
+import com.yemmback.primefaces.repository.BrandRepository;
+import com.yemmback.primefaces.repository.CarRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class CarService {
     @Autowired
     private BrandRepository brandRepository;
 
-    private static final Logger logger = LoggerFactory.getLogger(com.primestap.primefaces.service.CarService.class);
+    private static final Logger logger = LoggerFactory.getLogger(com.yemmback.primefaces.service.CarService.class);
 
     private List<Car> cars;
     private  final   String[] brands={"Volvo", "BMW", "Ford", "Mazda","Renault","Mercedes","Fiat","Volkswagen","Honda","Jaguar","Ford","Audi","Toyota"};

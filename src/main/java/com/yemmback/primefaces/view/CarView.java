@@ -1,12 +1,12 @@
-package com.codenotfound.primefaces.view;
+package com.yemmback.primefaces.view;
 
 
-import com.primestap.primefaces.model.*;
-import com.primestap.primefaces.model.colections.Color;
-import com.primestap.primefaces.repository.BrandRepository;
-import com.primestap.primefaces.repository.CarRepository;
-import com.primestap.primefaces.service.BrandService;
-import com.primestap.primefaces.service.CarService;
+import com.yemmback.primefaces.model.*;
+import com.yemmback.primefaces.model.colections.Color;
+import com.yemmback.primefaces.repository.BrandRepository;
+import com.yemmback.primefaces.repository.CarRepository;
+import com.yemmback.primefaces.service.BrandService;
+import com.yemmback.primefaces.service.CarService;
 import org.primefaces.event.CellEditEvent;
 import org.primefaces.event.RowEditEvent;
 import org.springframework.beans.factory.annotation.Autowired;

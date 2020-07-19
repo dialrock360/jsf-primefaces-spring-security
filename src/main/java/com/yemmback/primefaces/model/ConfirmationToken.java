@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.model;
+package com.yemmback.primefaces.model;
 
 
 import lombok.*;

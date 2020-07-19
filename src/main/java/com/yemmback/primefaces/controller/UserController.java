@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.controller;
+package com.yemmback.primefaces.controller;
 
 
 import lombok.AllArgsConstructor;

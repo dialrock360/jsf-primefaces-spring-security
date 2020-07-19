@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:sec="http://www.springframework.org/security/tags"
+                template="adminmain.xhtml">
+
+    <div class="authorization-div">
+        <sec:authorize access="hasRole('ROLE_USER')">
+            <p:outputLabel value="You have the USER role" />
+        </sec:authorize>
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
+            <p:outputLabel value="You have the ADMIN role" />
+        </sec:authorize>
+    </div>
+
+
+
+    <ui:define name="head">
+        <title>Admin Starter</title>
+
+
+        <!-- Theme style -->
+        <h:outputStylesheet library="css" name="theme.css"/>
+        <style type="text/css">
+            .white-button.ui-button.ui-state-default {
+                background-color: #ffffff;
+                color: #222222;
+                border-color: #d6d6d6;
+                /* with the exported variables from Nova and Luna Themes*/
+                border-color: var(--input-border-color, #d6d6d6);
+            }
+
+            .white-button.ui-button.ui-state-default:enabled:hover,
+            .white-button.ui-button.ui-state-default:focus {
+                background-color: #f2f2f2;
+                border-color: #ccc;
+                color: #373a3c;
+                /* with the exported variables from Nova and Luna Themes*/
+                border-color: var(--input-hover-border-color, #ccc);
+            }
+
+            .green-button.ui-button.ui-state-default {
+                background-color: #5cb85c;
+                border-color: #5cb85c;
+                color: #fff;
+            }
+
+            .green-button.ui-button.ui-state-default:enabled:hover,
+            .green-button.ui-button.ui-state-default:focus {
+                background-color: #4cae4c;
+                border-color: #5cb85c;
+            }
+
+            .red-button.ui-button.ui-state-default {
+                background-color: #d9534f;
+                border-color: #d9534f;
+                color: #fff;
+            }
+
+            .red-button.ui-button.ui-state-default:enabled:hover,
+            .red-button.ui-button.ui-state-default:focus {
+                background-color: #d43f3a;
+                border-color: #d9534f;
+            }
+            .ui-datalist .ui-datalist-content {
+                border:0 none
+            }
+
+            .ui-datalist ul {
+                padding:0px 10px 0 20px;
+                margin: 5px 0;
+            }
+
+            .label, .value {
+                vertical-align: top
+            }
+
+            .output {
+                font-weight: bold
+            }
+
+            .ui-selectmanymenu {
+                width: 175px;
+            }
+        </style>
+
+    </ui:define>
+
+    <ui:define name="nav-tabs">
+
+        <ui:include src="templates/require/navbar.xhtml"/>
+
+    </ui:define>
+    <!-- -->
+    <ui:define name="conten-tabs">
+
+        <ui:include src="templates/require/content.xhtml"/>
+
+    </ui:define>
+
+
+    <ui:define name="footer-tabs">
+
+        <ui:include src="templates/require/footer.xhtml"/>
+
+    </ui:define>
+
+
+</ui:composition>

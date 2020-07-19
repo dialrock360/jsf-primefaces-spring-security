@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces;
+package com.yemmback.primefaces;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;

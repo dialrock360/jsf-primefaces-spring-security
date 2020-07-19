@@ -1,7 +1,7 @@
-package com.codenotfound.primefaces.service;
+package com.yemmback.primefaces.service;
 
-import com.primestap.primefaces.model.Brand;
-import com.primestap.primefaces.repository.BrandRepository;
+import com.yemmback.primefaces.model.Brand;
+import com.yemmback.primefaces.repository.BrandRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.enterprise.context.ApplicationScoped;

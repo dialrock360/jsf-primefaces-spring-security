@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.model.audit;
+package com.yemmback.primefaces.model.audit;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;

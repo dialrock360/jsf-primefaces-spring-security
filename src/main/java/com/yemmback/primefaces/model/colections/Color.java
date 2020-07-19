@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.model.colections;
+package com.yemmback.primefaces.model.colections;
 
 import java.util.ArrayList;
 import java.util.Hashtable;

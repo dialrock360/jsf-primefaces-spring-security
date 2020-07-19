@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.model;
+package com.yemmback.primefaces.model;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;

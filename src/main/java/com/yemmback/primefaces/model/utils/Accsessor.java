@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.model.utils;
+package com.yemmback.primefaces.model.utils;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.InvocationTargetException;

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        .row.content {height: 1500px}
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {height: auto;}
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav">
+
+                <form class="form-inline my-2 my-lg-0">
+                    <h4 >Welcome, To Spring crud Pro Test</h4>
+                </form>
+
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a href="/home">Home <span class="sr-only">(current)</span></a></li>
+                <li><a href="/students/getAll">Crud Data Test</a></li>
+                <li><a href="#section2">Datatable</a></li>
+                <li><a href="#section3">Jfs primface</a></li>
+                <li><a href="#section3">Spring Boot security</a></li>
+
+
+            </ul><br>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search Blog..">
+                <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+            </div>
+        </div>
+
+        <div class="col-sm-9">
+            <h4><a href="/students/getAll"><small>CLICK ME TO TEST DATA</small></a></h4>
+            <hr>
+            <h2>I Love Food</h2>
+            <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
+            <h5>
+
+
+                <a href="/students/getAll"><span class="label label-danger">Food</span> </a>
+                <a href="/students/getAll"><span class="label label-primary">Ipsum</span></a>
+            </h5><br>
+            <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+                <a href="/students/getAll"><button type="button" class="btn btn-info">CLICK ME</button></a>
+            </p>
+            <br><br>
+
+
+            <h4>Leave a Comment:</h4>
+            <form role="form">
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<footer class="container-fluid">
+    <p>
+        	<span class="bigger-120">
+							<span class="blue bolder">Dialrock</span>
+							Apps &copy; 2014-2020
+						</span>
+        <span class="bigger-120">
+							<span class="blue bolder">yemmbackpierre@gmailcom</span>
+                            Tel: +221 77 567 21 79
+						</span>
+
+        &nbsp; &nbsp;
+        <span class="action-buttons">
+							<a href="#">
+                                <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+                            </a>
+
+							<a href="#">
+                                <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+                            </a>
+
+							<a href="#">
+                                <i class="ace-icon fa fa-rss-square orange bigger-150"></i>
+                            </a>
+						</span>
+    </p>
+</footer>
+
+</body>
+</html>

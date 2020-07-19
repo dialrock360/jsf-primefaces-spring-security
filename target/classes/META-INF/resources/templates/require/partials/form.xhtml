@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:sec="http://www.springframework.org/security/tags" >
+
+
+
+
+    <!-- Main Dropdown for menus -->
+    <div class="page-header">
+         <h2 id="Forms">Forms</h2>
+
+        <ui:include src="navlink.xhtml"/>
+    </div>
+
+
+    <div class="row">
+
+        <h1> JFS Form elements</h1>
+        <div class="col-sm-4  col-lg-4 col-xs-6" >
+            <h:form>
+                <h3>Vertical</h3>
+                <div class="ui-fluid">
+                    <div class="p-field">
+                        <p:outputLabel for="firstname1" value="Firstname" />
+                        <p:inputText id="firstname1" />
+                    </div>
+                    <div class="p-field">
+                        <p:outputLabel for="lastname1" value="Lastname" />
+                        <p:inputText id="lastname1" />
+                    </div>
+                </div>
+
+                <h3>Vertical and Grid</h3>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col">
+                        <p:outputLabel for="firstname2" value="Firstname" />
+                        <p:inputText id="firstname2" />
+                    </div>
+                    <div class="p-field p-col">
+                        <p:outputLabel for="lastname2" value="Lastname" />
+                        <p:inputText id="lastname2" />
+                    </div>
+                </div>
+
+
+
+                <h3>Vertical Checkbox</h3>
+                <div class="p-field-checkbox">
+                    <p:selectBooleanCheckbox id="v_option1" />
+                    <p:outputLabel for="v_option1" value="Option 1" />
+                </div>
+                <div class="p-field-checkbox">
+                    <p:selectBooleanCheckbox id="v_option2" />
+                    <p:outputLabel for="v_option2" value="Option 2" />
+                </div>
+
+                <h3>Help Text</h3>
+                <div class="p-field ui-fluid">
+                    <p:outputLabel for="username" value="Username" />
+                    <p:inputText id="username" />
+                    <small id="username-help">Enter your username to reset your password.</small>
+                </div>
+
+            </h:form>
+
+
+            <h:form>
+
+
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value">
+                    <p:outputLabel for="basic" value="Basic:" />
+
+                    <p:selectOneMenu   id="basic"  value="#{carView.color}" style="width:100%">
+                        <c:forEach items="#{carView.icolors}" var="cl" >
+                            <f:selectItem  itemLabel="#{cl.get('name')}" itemValue="#{cl.get('name')}" />
+                        </c:forEach>
+                    </p:selectOneMenu>
+                    <p:outputLabel for="advanced" value="Advanced:" />
+
+                    <p:selectOneListbox id="advanced" filter="true" filterMatchMode="contains" value="#{carView.brand}" style="width:100%">
+                        <f:selectItems value="#{carView.brands}" var="b" itemLabel="#{b.name}" itemValue="#{b.id}" />
+                        <p:column>
+                            <h:graphicImage library="images" name="gallerie/brands/#{b.displayName}.jpg" width="32" height="32" class="img-responsive" styleClass="ui-theme" alt="#{b.name}"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="#{b.displayName}" />
+                        </p:column>
+                    </p:selectOneListbox>
+
+                </h:panelGrid>
+
+                <p:separator />
+
+                <p:commandButton value="Submit" update="display" oncomplete="PF('dlg').show()" icon="pi pi-check" />
+
+                <p:dialog header="Selected Values" modal="true" showEffect="fade" widgetVar="dlg" resizable="false">
+                    <p:panelGrid columns="2" id="display" columnClasses="label,output">
+                        <h:outputText value="Basic:" />
+                        <h:outputText value="#{carView.color}" />
+
+                        <h:outputText value="Advanced:" />
+                        <h:outputText value="#{carView.brand}" />
+                    </p:panelGrid>
+                </p:dialog>
+            </h:form>
+        </div>
+        <div class="col-sm-4  col-lg-4 col-xs-6" >
+
+            <h:form>
+
+                <h3>Horizontal and Fixed Width</h3>
+                <div class="p-field p-grid">
+                    <p:outputLabel for="firstname3" styleClass="p-col-fixed" style="width:100px" value="Firstname" />
+                    <div class="p-col">
+                        <p:inputText id="firstname3" />
+                    </div>
+                </div>
+                <div class="p-field p-grid">
+                    <p:outputLabel for="lastname3" styleClass="p-col-fixed" style="width:100px" value="Lastname" />
+                    <div class="p-col">
+                        <p:inputText id="lastname3" />
+                    </div>
+                </div>
+
+                <h3>Horizontal and Fluid</h3>
+                <div class="ui-fluid">
+                    <div class="p-field p-grid">
+                        <p:outputLabel for="firstname4" styleClass="p-col-12 p-md-2" value="Firstname" />
+                        <div class="p-col-12 p-md-10">
+                            <p:inputText id="firstname4" />
+                        </div>
+                    </div>
+                    <div class="p-field p-grid">
+                        <p:outputLabel for="lastname4" styleClass="p-col-12 p-md-2" value="Lastname" />
+                        <div class="p-col-12 p-md-10">
+                            <p:inputText id="lastname4" />
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Inline</h3>
+                <div class="p-formgroup-inline">
+                    <div class="p-field">
+                        <p:outputLabel for="firstname5" styleClass="ui-sr-only" value="Firstname" />
+                        <p:inputText id="firstname5" placeholder="Firstname" />
+                    </div>
+                    <div class="p-field">
+                        <p:outputLabel for="lastname5" styleClass="ui-sr-only" value="Lastname" />
+                        <p:inputText id="lastname5" placeholder="Lastname" />
+                    </div>
+                    <p:button value="Submit" />
+                </div>
+
+                <h3>Horizontal Checkbox</h3>
+                <div class="p-formgroup-inline">
+                    <div class="p-field-checkbox">
+                        <p:selectBooleanCheckbox id="h_option1" />
+                        <p:outputLabel for="h_option1" value="Option 1" />
+                    </div>
+                    <div class="p-field-checkbox">
+                        <p:selectBooleanCheckbox id="h_option2" />
+                        <p:outputLabel for="h_option2" value="Option 2" />
+                    </div>
+                </div>
+
+                <h3>Advanced</h3>
+                <div class="ui-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-6">
+                        <p:outputLabel for="firstname6" value="Firstname" />
+                        <p:inputText id="firstname6" />
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <p:outputLabel for="lastname6" value="Lastname" />
+                        <p:inputText id="lastname6" />
+                    </div>
+                    <div class="p-field p-col-12">
+                        <p:outputLabel for="address" value="Address" />
+                        <p:inputTextarea id="address" rows="4" />
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <p:outputLabel for="city" value="City" />
+                        <p:inputText id="city" />
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel for="state" value="State" />
+                        <p:selectOneMenu id="state">
+                            <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Option 1" itemValue="Option 1" />
+                            <f:selectItem itemLabel="Option 2" itemValue="Option 2" />
+                            <f:selectItem itemLabel="Option 3" itemValue="Option 3" />
+                        </p:selectOneMenu>
+                    </div>
+                    <div class="p-field p-col-12 p-md-3">
+                        <p:outputLabel for="zip" value="Zip" />
+                        <p:inputText id="zip" />
+                    </div>
+                </div>
+
+            </h:form>
+        </div>
+        <div class="col-sm-4  col-lg-4 col-xs-6" >
+            <h4 class="sub-header">Input Group</h4>
+
+
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon">   <i class="ace-icon glyphicon glyphicon-user"></i></span>
+                        <p:inputText placeholder="Username" />
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon">$</span>
+                        <p:inputText placeholder="Price" />
+                        <span class="ui-inputgroup-addon">.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon">www</span>
+                        <p:inputText placeholder="Website" />
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="ace-icon glyphicon glyphicon-shopping-cart"></i></span>
+                        <span class="ui-inputgroup-addon"><i class="ace-icon glyphicon glyphicon-shopping-money-bill"></i></span>
+                        <p:inputText placeholder="Price" />
+                        <span class="ui-inputgroup-addon">$</span>
+                        <span class="ui-inputgroup-addon">.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <p:commandButton value="Search" styleClass="glyphicon glyphicon-search"/>
+                        <p:inputText placeholder="Keyword" />
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <p:commandButton value="vote"  styleClass="glyphicon glyphicon-ok"/>
+                        <p:inputText placeholder="Keyword" />
+                        <p:commandButton value="cancel" styleClass="glyphicon glyphicon-remove"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui-g ui-fluid">
+                <div class="ui-g-12 ui-md-12">
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon-checkbox"><p:selectBooleanCheckbox /></span>
+                        <p:inputText placeholder="Checkbox" />
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+        <div class="col-sm-4  col-lg-4 col-xs-6" >
+
+            <h4 class="sub-header">Input Mask</h4>
+
+
+
+            <h:form styleClass="form-horizontal">
+
+
+                <h:panelGrid columns="2" cellpadding="5">
+
+
+                    <p:outputLabel for="date" value=" 99/99/9999 : "   styleClass="glyphicon glyphicon-calendar"/>
+                    <p:inputMask id="date" value="#{basicView.date}" mask="99/99/9999"/>
+
+                    <p:outputLabel for="phone" value=" (999) 999-9999 : " styleClass="glyphicon glyphicon-phone"/>
+                    <p:inputMask id="phone" value="#{basicView.phone}" mask="(999) 999-9999"/>
+
+                    <p:outputLabel for="phoneWithExt" value=" (999) 999-9999? x99999:" styleClass="glyphicon glyphicon-phone-alt"/>
+                    <p:inputMask id="phoneWithExt" value="#{basicView.phoneExt}" mask="(999) 999-9999? x99999"/>
+
+                    <p:outputLabel for="taxId" value="Tax Id:" />
+                    <p:inputMask id="taxId" value="#{basicView.taxId}" mask="99-9999999"/>
+
+                    <p:outputLabel for="ssn" value=" SSN:"  styleClass="fa fa-barcode"/>
+                    <p:inputMask id="ssn" value="#{basicView.ssn}" mask="999-99-9999"/>
+
+                    <p:outputLabel for="key"  value="Product Key: " styleClass="fa fa-key"/>
+                    <p:inputMask id="key" value="#{basicView.productKey}" mask="a*-999-a999"/>
+
+
+                    <p:commandButton value="Reset" type="reset" styleClass="btn btn-default"/>
+                    <p:commandButton value="Submit" update="display" styleClass="btn btn-primary" oncomplete="PF('dlg').show()"/>
+                </h:panelGrid>
+
+
+
+                <p:dialog widgetVar="dlg" modal="true" resizable="false" header="Values" showEffect="fade">
+                    <p:panelGrid id="display" columns="2" columnClasses="label,value">
+                        <h:outputText value="Date: " />
+                        <h:outputText id="dateValue" value="#{ basicView.date}" />
+
+                        <h:outputText value="Phone: " />
+                        <h:outputText id="phoneValue" value="#{ basicView.phone}" />
+
+                        <h:outputText value="Phone with Ext: " />
+                        <h:outputText id="phoneWithExtValue" value="#{ basicView.phoneExt}"/>
+                        <h:outputText value="SSN: " />
+                        <h:outputText id="ssnValue" value="#{ basicView.ssn}" />
+
+                        <h:outputText value="Product Key: " />
+                        <h:outputText id="keyValue" value="#{ basicView.productKey}" />
+                    </p:panelGrid>
+                </p:dialog>
+            </h:form>
+         <hr/>
+
+            <h4 class="sub-header">Color picker</h4>
+            <h:form>
+                <h:panelGrid columns="2" cellpadding="5" style="margin-left: 20px">
+                    <h:outputText value="Inline: " />
+                    <p:colorPicker value="#{ basicView.colorInline}" mode="inline" />
+
+                    <h:outputText value="Popup: " />
+                    <p:colorPicker value="#{ basicView.colorPopup}" />
+                </h:panelGrid>
+
+                <p:separator />
+
+                <p:commandButton value="Submit" oncomplete="PF('dlg').show();" update="grid" style="margin-left: 20px" />
+
+                <p:dialog modal="true" widgetVar="dlg" showEffect="fade" hideEffect="fade" header="Selected Colors" resizable="false">
+                    <h:panelGrid id="grid" columns="2" cellpadding="5">
+                        <h:outputText value="Inline color: " />
+                        <h:outputText value="#{ basicView.colorInline}" style="background-color: ##{ basicView.colorInline}" />
+
+                        <h:outputText value="Popup color: " />
+                        <h:outputText value="#{ basicView.colorPopup}" style="background-color: ##{ basicView.colorPopup}" />
+                    </h:panelGrid>
+                </p:dialog>
+            </h:form>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+        <div class="col-xs-6">
+            <h4>Form horizontal</h4>
+
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+                    <div class="col-sm-9">
+                        <input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Full Length </label>
+
+                    <div class="col-sm-9">
+                        <input type="text" id="form-field-1-1" placeholder="Text Field" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-2"> Password Field </label>
+
+                    <div class="col-sm-9">
+                        <input type="password" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />
+                        <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">Inline help text</span>
+											</span>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-input-readonly"> Readonly field </label>
+
+                    <div class="col-sm-9">
+                        <input readonly="" type="text" class="col-xs-10 col-sm-5" id="form-input-readonly" value="This text field is readonly!" />
+                        <span class="help-inline col-xs-12 col-sm-7">
+												<label class="middle">
+													<input class="ace" type="checkbox" id="id-disable-check" />
+													<span class="lbl"> Disable it!</span>
+												</label>
+											</span>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-4">Relative Sizing</label>
+
+                    <div class="col-sm-9">
+                        <input class="input-sm" type="text" id="form-field-4" placeholder=".input-sm" />
+                        <div class="space-2"></div>
+
+                        <div class="help-block" id="input-size-slider"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-5">Grid Sizing</label>
+
+                    <div class="col-sm-9">
+                        <div class="clearfix">
+                            <input class="col-xs-1" type="text" id="form-field-5" placeholder=".col-xs-1" />
+                        </div>
+
+                        <div class="space-2"></div>
+
+                        <div class="help-block" id="input-span-slider"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right">Input with Icon</label>
+
+                    <div class="col-sm-9">
+											<span class="input-icon">
+												<input type="text" id="form-field-icon-1" />
+												<i class="ace-icon fa fa-leaf blue"></i>
+											</span>
+
+                        <span class="input-icon input-icon-right">
+												<input type="text" id="form-field-icon-2" />
+												<i class="ace-icon fa fa-leaf green"></i>
+											</span>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-6">Tooltip and help button</label>
+
+                    <div class="col-sm-9">
+                        <input data-rel="tooltip" type="text" id="form-field-6" placeholder="Tooltip on hover" title="Hello Tooltip!" data-placement="bottom" />
+                        <span class="help-button" data-rel="popover" data-trigger="hover" data-placement="left" data-content="More details." title="Popover on hover">?</span>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-tags">Tag input</label>
+
+                    <div class="col-sm-9">
+                        <div class="inline">
+                            <input type="text" name="tags" id="form-field-tags" value="Tag Input Control" placeholder="Enter tags ..." />
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+
+                <h4>Input Picker</h4>
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-7">Date Picker</label>
+
+                    <div class="col-sm-9">
+                        <input data-rel="tooltip" type="date" id="form-field-7" placeholder="Date on Pick" />
+                    </div>
+                </div>
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-8">Time Picker</label>
+
+                    <div class="col-sm-9">
+                        <input data-rel="tooltip" type="time" id="form-field-8" placeholder="Time on Pick" />
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-9">Color Picker</label>
+
+                    <div class="col-sm-9">
+                        <input data-rel="tooltip" type="color" id="form-field-9" placeholder="Date on Pick" />
+                    </div>
+                </div>
+                <hr/>
+
+
+                <h4>Masked Input</h4>
+                <div class="space-4"></div>
+
+
+                <hr/>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>File Input</h4>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <input type="file" id="id-input-file-2" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <input multiple="" type="file" id="id-input-file-3" />
+                                    </div>
+                                </div>
+
+                                <label>
+                                    <input type="checkbox" name="file-format" id="id-file-format" class="ace" />
+                                    <span class="lbl"> Allow only images</span>
+                                </label>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <hr/>
+
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button class="btn btn-info" type="button">
+                            <i class="ace-icon fa fa-check bigger-110"></i>
+                            Submit
+                        </button>
+
+
+                        <button class="btn" type="reset">
+                            <i class="ace-icon fa fa-undo bigger-110"></i>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+
+
+                <hr />
+
+
+
+            </form>
+        </div>
+        <div class="col-xs-4">
+            <h4>Form Inline</h4>
+
+            <form class="form-inline">
+                <input type="text" class="input-small" placeholder="Username" />
+                <input type="password" class="input-small" placeholder="Password" />
+                <label class="inline">
+                    <input type="checkbox" class="ace" />
+                    <span class="lbl"> remember me</span>
+                </label>
+
+                <button type="button" class="btn btn-info btn-sm">
+                    <i class="ace-icon fa fa-key bigger-110"></i>Login
+                </button>
+            </form>
+
+            <div class="hr hr-24"></div>
+
+
+
+            <h3 class="header smaller lighter blue">
+                Checkboxes and Radio
+
+            </h3>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="control-group">
+                        <label class="control-label bolder blue">Checkbox</label>
+
+                        <div class="checkbox">
+                            <label>
+                                <input name="form-field-checkbox" type="checkbox" class="ace" />
+                                <span class="lbl"> choice 1</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input name="form-field-checkbox" type="checkbox" class="ace" />
+                                <span class="lbl"> choice 2</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input name="form-field-checkbox" class="ace ace-checkbox-2" type="checkbox" />
+                                <span class="lbl"> choice 3</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label class="block">
+                                <input name="form-field-checkbox" disabled="" type="checkbox" class="ace" />
+                                <span class="lbl"> disabled</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox">
+                            <label class="block">
+                                <input name="form-field-checkbox" type="checkbox" class="ace input-lg" />
+                                <span class="lbl bigger-120"> large checkbox</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6">
+                    <div class="control-group">
+                        <label class="control-label bolder blue">Radio</label>
+
+                        <div class="radio">
+                            <label>
+                                <input name="form-field-radio" type="radio" class="ace" />
+                                <span class="lbl"> radio option 1</span>
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input name="form-field-radio" type="radio" class="ace" />
+                                <span class="lbl"> radio option 2</span>
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input name="form-field-radio" type="radio" class="ace" />
+                                <span class="lbl"> radio option 3</span>
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input disabled="" name="form-field-radio" type="radio" class="ace" />
+                                <span class="lbl"> disabled</span>
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input name="form-field-radio" type="radio" class="ace input-lg" />
+                                <span class="lbl bigger-120"> large radio</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.row -->
+
+
+
+            <div class="hr hr-24"></div>
+
+
+
+            <h3 class="header smaller lighter blue">
+                Text Area
+
+            </h3>
+
+
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div  >
+                        <div >
+                            ch							<div>
+                            <label for="form-field-8">Default</label>
+
+                            <textarea class="form-control" id="form-field-8" placeholder="Default Text"></textarea>
+                        </div>
+
+                            <hr />
+
+                            <div>
+                                <label for="form-field-9">With Character Limit</label>
+
+                                <textarea class="form-control limited" id="form-field-9" maxlength="50"></textarea>
+                            </div>
+
+                            <hr />
+
+                            <div>
+                                <label for="form-field-11">Autosize</label>
+
+                                <textarea id="form-field-11" class="autosize-transition form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div><!-- /.row -->
+
+           <hr/>
+            <h3 class="header smaller lighter blue">
+                Select Box
+
+            </h3>
+
+            <div class="form-group">
+                <div>
+                    <label for="form-field-select-1">Default</label>
+
+                    <select class="form-control" id="form-field-select-1">
+                        <option value=""></option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+
+                <hr />
+                <div>
+                    <label for="form-field-select-2">Multiple</label>
+
+                    <select class="form-control" id="form-field-select-2" multiple="multiple">
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+
+                <hr />
+
+                <div>
+                    <label for="form-field-select-3">Chosen</label>
+
+                    <br />
+                    <select class="chosen-select form-control" id="form-field-select-3" data-placeholder="Choose a State...">
+                        <option value="">  </option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+
+                <hr />
+                <div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="bigger-110">Multiple</span>
+                        </div><!-- /.span -->
+
+                        <div class="col-sm-6">
+																	<span class="pull-right inline">
+																		<span class="grey">style:</span>
+
+																		<span class="btn-toolbar inline middle no-margin">
+																			<span id="chosen-multiple-style" data-toggle="buttons" class="btn-group no-margin">
+																				<label class="btn btn-xs btn-yellow active">
+																					1
+																					<input type="radio" value="1" />
+																				</label>
+
+																				<label class="btn btn-xs btn-yellow">
+																					2
+																					<input type="radio" value="2" />
+																				</label>
+																			</span>
+																		</span>
+																	</span>
+                        </div><!-- /.span -->
+                    </div>
+
+                    <div class="space-2"></div>
+
+                    <select multiple="" class="chosen-select form-control" id="form-field-select-4" data-placeholder="Choose a State...">
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <h4>Form Modal</h4>
+            <h5 class="pink">
+                <i class="ace-icon fa fa-hand-o-right green"></i>
+                <a href="#modal-form" role="button" class="blue" data-toggle="modal"> Form Inside a Modal Box </a>
+            </h5>
+
+            <div id="modal-form" class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">andtimes;</button>
+                            <h4 class="blue bigger">Please fill the following form fields</h4>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-5">
+                                    <div class="space"></div>
+
+                                    <input type="file" />
+                                </div>
+
+                                <div class="col-xs-12 col-sm-7">
+                                    <div class="form-group">
+                                        <label for="form-field-select-3">Location</label>
+
+                                        <div>
+                                            <select class="chosen-select" data-placeholder="Choose a Country...">
+                                                <option value=""></option>
+                                                <option value="AL">Alabama</option>
+                                                <option value="AK">Alaska</option>
+                                                <option value="AZ">Arizona</option>
+                                                <option value="AR">Arkansas</option>
+                                                <option value="CA">California</option>
+                                                <option value="CO">Colorado</option>
+                                                <option value="CT">Connecticut</option>
+                                                <option value="DE">Delaware</option>
+                                                <option value="FL">Florida</option>
+                                                <option value="GA">Georgia</option>
+                                                <option value="HI">Hawaii</option>
+                                                <option value="ID">Idaho</option>
+                                                <option value="IL">Illinois</option>
+                                                <option value="IN">Indiana</option>
+                                                <option value="IA">Iowa</option>
+                                                <option value="KS">Kansas</option>
+                                                <option value="KY">Kentucky</option>
+                                                <option value="LA">Louisiana</option>
+                                                <option value="ME">Maine</option>
+                                                <option value="MD">Maryland</option>
+                                                <option value="MA">Massachusetts</option>
+                                                <option value="MI">Michigan</option>
+                                                <option value="MN">Minnesota</option>
+                                                <option value="MS">Mississippi</option>
+                                                <option value="MO">Missouri</option>
+                                                <option value="MT">Montana</option>
+                                                <option value="NE">Nebraska</option>
+                                                <option value="NV">Nevada</option>
+                                                <option value="NH">New Hampshire</option>
+                                                <option value="NJ">New Jersey</option>
+                                                <option value="NM">New Mexico</option>
+                                                <option value="NY">New York</option>
+                                                <option value="NC">North Carolina</option>
+                                                <option value="ND">North Dakota</option>
+                                                <option value="OH">Ohio</option>
+                                                <option value="OK">Oklahoma</option>
+                                                <option value="OR">Oregon</option>
+                                                <option value="PA">Pennsylvania</option>
+                                                <option value="RI">Rhode Island</option>
+                                                <option value="SC">South Carolina</option>
+                                                <option value="SD">South Dakota</option>
+                                                <option value="TN">Tennessee</option>
+                                                <option value="TX">Texas</option>
+                                                <option value="UT">Utah</option>
+                                                <option value="VT">Vermont</option>
+                                                <option value="VA">Virginia</option>
+                                                <option value="WA">Washington</option>
+                                                <option value="WV">West Virginia</option>
+                                                <option value="WI">Wisconsin</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label for="form-field-username">Username</label>
+
+                                        <div>
+                                            <input type="text" id="form-field-username" placeholder="Username" value="alexdoe" />
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label for="form-field-first">Name</label>
+
+                                        <div>
+                                            <input type="text" id="form-field-first" placeholder="First Name" value="Alex" />
+                                            <input type="text" id="form-field-last" placeholder="Last Name" value="Doe" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-sm" data-dismiss="modal">
+                                <i class="ace-icon fa fa-times"></i>
+                                Cancel
+                            </button>
+
+                            <button class="btn btn-sm btn-primary">
+                                <i class="ace-icon fa fa-check"></i>
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+            <div class="hr hr-18 dotted hr-double"></div>
+
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+
+</ui:composition>

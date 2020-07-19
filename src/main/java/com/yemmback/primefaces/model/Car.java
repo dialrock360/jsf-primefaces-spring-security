@@ -1,7 +1,7 @@
-package com.codenotfound.primefaces.model;
+package com.yemmback.primefaces.model;
 
 
-import com.primestap.primefaces.model.colections.Color;
+import com.yemmback.primefaces.model.colections.Color;
 
 import javax.persistence.*;
 import java.io.Serializable;

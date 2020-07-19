@@ -1,6 +1,6 @@
-package com.codenotfound.primefaces.repository;
+package com.yemmback.primefaces.repository;
 
-import com.primestap.primefaces.model.User;
+import com.yemmback.primefaces.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+
+
+    <!-- Main Dropdown for menus -->
+    <div class="page-header">
+        <h2 id="Grid">Grid</h2>
+
+        <ui:include src="navlink.xhtml"/>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="container">
+                <h3>Hello grid!</h3>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12 col-xs-12" style="background-color:grey;text-align: center;color: #ffffff;">
+                        <p>Lorem ipsum col-sm-12 col-lg-12 col-xs-12...</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6  col-lg-6 col-xs-6" style="background-color:darkcyan;color: #ffffff;">
+                        <p>Lorem ipsum col-sm-6  col-lg-6 col-xs-6...</p>
+                    </div>
+                    <div class="col-sm-6 col-lg-6 col-xs-6" style="background-color:blueviolet;color: #ffffff;">
+                        <p>Sed ut perspiciatis col-sm-6  col-lg-6 col-xs-6...</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3  col-lg-3 col-xs-3" style="background-color:yellow;">
+                        <p>Lorem ipsum col-sm-3 col-lg-3 col-xs-3...</p>
+                    </div>
+                    <div class="col-sm-3 col-lg-3 col-xs-3" style="background-color:pink;">
+                        <p>Sed ut perspiciatis col-sm-3 col-lg-3 col-xs-3...</p>
+                    </div>
+                    <div class="col-sm-3  col-lg-3 col-xs-3" style="background-color:blue;color: #ffffff;">
+                        <p>Lorem ipsum col-sm-3 col-lg-3 col-xs-3...</p>
+                    </div>
+                    <div class="col-sm-3 col-lg-3 col-xs-3" style="background-color:green;color: #ffffff;">
+                        <p>Sed ut perspiciatis.col-sm-3 col-lg-3 col-xs-3..</p>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <h5>Three Equal Columns</h5>
+            <div class="row">
+                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+                <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
+                <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+            </div>
+
+            <hr/>
+            <h5>Three UnEqual Columns</h5>
+
+            <div class="row">
+                <div class="col-sm-3" style="background-color:lavender;">.col-sm-3</div>
+                <div class="col-sm-6" style="background-color:lavenderblush;">.col-sm-6</div>
+                <div class="col-sm-3" style="background-color:lavender;">.col-sm-3</div>
+            </div>
+
+            <hr/>
+            <div class="container-fluid">
+                <h5>No gutters</h5>
+                <p>Use the .row-no-gutters class to remove the gutters from a row and its columns:</p>
+                <div class="row row-no-gutters">
+                    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+                    <div class="col-sm-8" style="background-color:lavenderblush;">.col-sm-8</div>
+                </div>
+                <br/>
+                <p>And here's a row with gutters to demonstrate the differences:</p>
+                <div class="row">
+                    <div class="col-sm-4" style="background-color:lavender;">.col-sm-4</div>
+                    <div class="col-sm-8" style="background-color:lavenderblush;">.col-sm-8</div>
+                </div>
+            </div>
+
+            <hr/>
+            <h5>Two Columns With Two Nested Columns</h5>
+            <div class="row">
+                <div class="col-sm-8" style="background-color:lavender;">.col-sm-8
+                    <div class="row">
+                        <div class="col-sm-6" style="background-color:lightcyan;">.col-sm-6</div>
+                        <div class="col-sm-6" style="background-color:lightgray;">.col-sm-6</div>
+                    </div>
+                </div>
+                <div class="col-sm-4" style="background-color:lavenderblush;">.col-sm-4</div>
+            </div>
+
+            <hr/>
+            <h5>Mixed: Mobile And Desktop</h5>
+            <div class="container-fluid">
+                <p>Resize the browser window to see the effect.</p>
+                <div class="row">
+                    <div class="col-xs-9 col-md-7" style="background-color:red;">.col-xs-9 .col-md-7</div>
+                    <div class="col-xs-3 col-md-5" style="background-color:lavender;">.col-xs-3 .col-md-5</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-md-10" style="background-color:lavenderblush;">.col-xs-6 .col-md-10</div>
+                    <div class="col-xs-6 col-md-2" style="background-color:lightgrey;">.col-xs-6 .col-md-2</div>
+                </div>
+                <div class="row" style="background-color:lightcyan;">
+                    <div class="col-xs-6">.col-xs-6</div>
+                    <div class="col-xs-6">.col-xs-6</div>
+                </div>
+            </div>
+
+            <hr/>
+            <h5>Mixed: Mobile, Tablet And Desktop</h5>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-7 col-sm-6 col-lg-8" style="background-color:red;">.col-xs-7 .col-sm-6 .col-lg-8</div>
+                    <div class="col-xs-5 col-sm-6 col-lg-4" style="background-color:lavender;">.col-xs-5 .col-sm-6 .col-lg-4</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-8 col-lg-10" style="background-color:lavenderblush;">.col-xs-6 .col-sm-8 .col-lg-10</div>
+                    <div class="col-xs-6 col-sm-4 col-lg-2" style="background-color:lightgrey;">.col-xs-6 .col-sm-4 .col-lg-2</div>
+                </div>
+                <div class="row" style="background-color:lightcyan;">
+                    <div class="col-xs-6">.col-xs-6</div>
+                    <div class="col-xs-6">.col-xs-6</div>
+                </div>
+            </div>
+
+            <hr/>
+            <h5>Clear Floats</h5>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3" style="background-color:lavender;">
+                        Column 1<br/>
+                        Resize the browser window to see the effect. Also try to remove the div clearfix line and see what happens.
+                    </div>
+                    <div class="col-xs-6 col-sm-3" style="background-color:lavenderblush;">Column 2</div>
+                    <!-- Add clearfix for only the required viewport -->
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-6 col-sm-3" style="background-color:lightcyan;">Column 3</div>
+                    <div class="col-xs-6 col-sm-3" style="background-color:lightgray;">Column 4</div>
+                </div>
+            </div>
+
+            <hr/>
+            <h5>Offsetting Columns</h5>
+            <div class="container-fluid">
+                <div class="row" style="background-color:lavender;">
+                    <div class="col-sm-5 col-md-6" style="background-color:lightgray;">.col-sm-5 .col-md-6</div>
+                    <div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0" style="background-color:lightcyan;">.col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0</div>
+                </div>
+            </div>
+
+            <hr/>
+            <h5>No gutters</h5>
+            <div class="container-fluid">
+                <p>Resize the browser window to see the effect.</p>
+                <div class="row">
+                    <div class="col-sm-4 col-sm-push-8" style="background-color:lavender;">.col-sm-4 .col-sm-push-8</div>
+                    <div class="col-sm-8 col-sm-pull-4" style="background-color:lavenderblush;">.col-sm-8 .col-sm-pull-4</div>
+                </div>
+            </div>
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+</ui:composition>

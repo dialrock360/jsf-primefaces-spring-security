@@ -1,7 +1,7 @@
-package com.codenotfound.primefaces.model;
+package com.yemmback.primefaces.model;
 
-import com.primestap.primefaces.model.audit.UserDateAudit;
-import com.primestap.primefaces.model.colections.Role;
+import com.yemmback.primefaces.model.audit.UserDateAudit;
+import com.yemmback.primefaces.model.colections.Role;
 import lombok.*;
 import org.hibernate.annotations.NaturalId;
 import org.springframework.security.core.GrantedAuthority;

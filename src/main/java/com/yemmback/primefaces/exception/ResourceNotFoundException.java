@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.exception;
+package com.yemmback.primefaces.exception;
 
 
 import org.springframework.http.HttpStatus;

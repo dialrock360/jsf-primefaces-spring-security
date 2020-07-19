@@ -1,13 +1,13 @@
-package com.codenotfound.primefaces.controller;
+package com.yemmback.primefaces.controller;
 
 
-import com.primestap.primefaces.exception.ResourceNotFoundException;
-import com.primestap.primefaces.model.Brand;
-import com.primestap.primefaces.model.Car;
-import com.primestap.primefaces.repository.BrandRepository;
-import com.primestap.primefaces.repository.CarRepository;
-import com.primestap.primefaces.service.BrandService;
-import com.primestap.primefaces.service.CarService;
+import com.yemmback.primefaces.exception.ResourceNotFoundException;
+import com.yemmback.primefaces.model.Brand;
+import com.yemmback.primefaces.model.Car;
+import com.yemmback.primefaces.repository.BrandRepository;
+import com.yemmback.primefaces.repository.CarRepository;
+import com.yemmback.primefaces.service.BrandService;
+import com.yemmback.primefaces.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

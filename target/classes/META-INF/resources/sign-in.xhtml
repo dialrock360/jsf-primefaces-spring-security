@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+  <title>Login</title>
+
+
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="theme-color" content="#444"/>
+  <meta charset="UTF-8"/>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+
+
+
+  <!-- Theme style -->
+  <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <h:outputScript library="js" name="jquery-1.12.4.min.js" target="head"/>
+  <h:outputScript library="js" name="bootstrap.min.js" target="head"/>
+
+
+  <style type="text/css">
+
+    body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #eee;
+    }
+
+    .form-signin {
+      max-width: 330px;
+      padding: 15px;
+      margin: 0 auto;
+    }
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+      margin-bottom: 10px;
+    }
+    .form-signin .checkbox {
+      font-weight: 400;
+    }
+    .form-signin .form-control {
+      position: relative;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      height: auto;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .form-signin .form-control:focus {
+      z-index: 2;
+    }
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+   #register{
+     display: none;
+   }
+  </style>
+</h:head>
+
+<h:body>
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 style="text-align: center;">Login/Register page</h1>
+      <div class="login-logo" style="background-color:#ffffff">
+        <h3 style="text-align: center; color: #2aabd2">Login infos</h3>
+
+        <div class="alert alert-info" role="alert">
+          <p:link href="#" onclick="myFunction('dialrock','1234')"> Click this to load  <b>Default User </b>  </p:link>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:5px;">
+
+
+
+        <form class="form-horizontal" role="form" id="login" th:action="@{/sign-in}" th:method="post" >
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"> <i class="ace-icon fa fa-coffee green"></i>
+                Please Enter Your login Information</h3>
+            </div>
+            <div class="panel-body">
+              <fieldset style="background-color: #ffffff">
+                <label for="username">User name</label>
+
+                <div class="row">
+                  <div class="col-xs-8 col-sm-11">
+                    <div class="input-group">
+                       <input type="text" id="username" name="username" placeholder="username" class="form-control" />
+
+                      <span class="input-group-addon">
+																		<i class="fa fa-user bigger-110"></i>
+																	</span>
+                    </div>
+                  </div>
+                </div>
+
+                <label for="password">User password : default(1234)</label>
+
+                <div class="row">
+                  <div class="col-xs-8 col-sm-11">
+                    <div class="input-group">
+                       <input type="text" id="password" name="password" value="1234" placeholder="Password" class="form-control" />
+
+                      <span class="input-group-addon">
+																		<i class="fa fa-lock bigger-110"></i>
+																	</span>
+                    </div>
+                  </div>
+
+
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label no-padding-right" for="Remember">Remember Me</label>
+
+                  <div class="col-sm-9">
+                    <div class="inline">
+                      <input type="checkbox" class="ace" id="Remember"/>
+                    </div>
+                  </div>
+                </div>
+
+
+                <hr/>
+
+                <div class="form-group">
+                  <div class="col-sm-9">
+                    <div class="inline">
+                      <button class="btn btn-success pull-left"  >
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        login
+                      </button>
+
+                      <button class="btn pull-right" type="reset">
+                        <i class="ace-icon fa fa-undo bigger-110"></i>
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="toolbar center">
+                      <a href="#" onclick="switchFunction('login','register')" class="back-to-login-link">
+
+                        Go to register
+                        <i class="ace-icon fa fa-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+                <div class="space-4"></div>
+              </fieldset>
+            </div>
+          </div>
+
+        </form>
+
+
+        <form class="form-horizontal" role="form" id="register" th:action="@{/sign-up}" th:method="post">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"> <i class="ace-icon fa fa-coffee green"></i>
+                Please Enter Your register Information</h3>
+            </div>
+            <div class="panel-body">
+              <fieldset style="background-color: #ffffff">
+
+                <label for="role">User role</label>
+
+                <div class="row">
+                  <div class="col-xs-8 col-sm-11">
+                    <div class="input-group">
+                       <div class="range-slider">
+                        <input class="input-range" id="role" type="range"  min="1" step="1" max="3"/>
+                        <span class="range-value">1</span>
+                      </div>
+                      <span class="input-group-addon">
+																		<i class="fa fa-level-up bigger-110"></i>
+																	</span>
+                    </div>
+
+                  </div>
+
+
+                </div>
+<br/>
+<hr/>
+                <label for="fullname">User full name</label>
+
+                <div class="row">
+                  <div class="col-xs-8 col-sm-11">
+                    <div class="input-group">
+                      <input type="text" id="fullname" name="fullname" placeholder="fullname" class="form-control" />
+
+                      <span class="input-group-addon">
+																		<i class="fa fa-user bigger-110"></i>
+																	</span>
+                    </div>
+                  </div>
+                </div>
+
+                <label for="rusername">User name</label>
+
+                <div class="row">
+                  <div class="col-xs-8 col-sm-11">
+                    <div class="input-group">
+                      <input type="text" id="rusername" name="username" placeholder="username" class="form-control" />
+
+                      <span class="input-group-addon">
+																		<i class="fa fa-user bigger-110"></i>
+																	</span>
+                    </div>
+                  </div>
+                </div>
+
+
+                <label for="email">User email</label>
+
+                <div class="row">
+                  <div class="col-xs-8 col-sm-11">
+                    <div class="input-group">
+                      <input type="email" id="email" name="email" placeholder="user email" class="form-control" />
+
+                      <span class="input-group-addon">
+																		<i class="fa fa-envelope bigger-110"></i>
+																	</span>
+                    </div>
+                  </div>
+                </div>
+
+                <label for="rpassword">User password</label>
+
+                <div class="row">
+                  <div class="col-xs-8 col-sm-11">
+                    <div class="input-group">
+                      <input type="text" id="rpassword" name="password" placeholder="Password" class="form-control" />
+
+                      <span class="input-group-addon">
+																		<i class="fa fa-lock bigger-110"></i>
+																	</span>
+                    </div>
+                  </div>
+                </div>
+
+                <label for="cpassword">Confirm password</label>
+
+                <div class="row">
+                  <div class="col-xs-8 col-sm-11">
+                    <div class="input-group">
+                      <input type="text" id="cpassword" name="cpassword" placeholder="cPassword" class="form-control" />
+
+                      <span class="input-group-addon">
+																		<i class="fa fa-lock bigger-110"></i>
+																	</span>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <hr/>
+
+                <div class="space"></div>
+                <div class="form-group">
+                  <div class="col-sm-9">
+                    <div class="inline">
+                      <button class="btn btn-primary pull-left"  >
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        register
+                      </button>
+
+
+                      <button class="btn pull-right" type="reset">
+                        <i class="ace-icon fa fa-undo bigger-110"></i>
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="toolbar center">
+                      <a href="#" onclick="switchFunction('register','login')" class="back-to-login-link">
+                        <i class="ace-icon fa fa-arrow-left"></i>
+                        Back to login
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+               
+
+                <div class="space-4"></div>
+              </fieldset>
+            </div>
+          </div>
+
+        </form>
+
+      </div><!-- /.widget-body -->
+    </div><!-- /.login-box -->
+    <hr/>
+
+    <footer class="footer">
+      <div class="container">
+        <a target="_blank"
+           href="https://github.com/adminfaces/">
+          Copyright 2020 - Dialtock360 BoostFaces
+        </a>
+
+        <div class="pull-right hidden-xs" style="color: gray">
+          <i> version 2.0.2</i>
+        </div>
+        <p class="text-muted">Place sticky footer content here.</p>
+      </div>
+
+      <h:outputScript library="js" name="template.js" target="body"/>
+    </footer>
+
+  </div> <!-- /container -->
+
+  <script>
+    function myFunction(values,input) {
+      //var inputid='#'+input;
+      //$(inputid).val(values);
+      $("#username").val(values);
+      $("#password").val(input);
+
+      $("#fullname").val("dialrock");
+      $("#email").val("dialrock360@gmail.com");
+      $("#rusername").val(values);
+      $("#rpassword").val(input);
+      $("#cpassword").val(input);
+    }
+    function switchFunction(oldinput,nwinput) {
+      var oldinputid='#'+oldinput;
+      var newinputid='#'+nwinput;
+      $(oldinputid).slideUp(200);
+      $(newinputid).slideDown(200);
+      //$(inputid).val(values);
+
+    }
+
+    $('.input-range').on('input', function() {
+
+      $(this).next('.range-value').html((this.value==='2')?'Admin':((this.value==='3')?'Super Admin':'User'));
+    });
+  </script>
+</h:body>
+</html>

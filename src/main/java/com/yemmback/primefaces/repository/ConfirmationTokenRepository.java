@@ -1,6 +1,6 @@
-package com.codenotfound.primefaces.repository;
+package com.yemmback.primefaces.repository;
 
-import com.primestap.primefaces.model.ConfirmationToken;
+import com.yemmback.primefaces.model.ConfirmationToken;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

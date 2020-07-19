@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+
+
+<!-- Main carrocet for badges -->
+<!-- Trigger the modal with a button -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"> <i class="ace-icon glyphicon glyphicon-off"></i></button>
+                <h4 class="modal-title">Modal Brand Form</h4>
+            </div>
+            <div class="modal-body">
+                <h:form  id="addbcar" class="form-signin">
+                <p:panel id="pnl" header="New Brand">
+                    <h:panelGrid columns="3" cellpadding="5">
+                        <p:outputLabel for="bname" value="Brand name:" />
+                        <p:inputText id="bname" value="#{carView.brand.name}" required="true" label="Brand name">
+                            <f:validateLength minimum="2" />
+                        </p:inputText>
+                        <p:message for="bname" display="icon" />
+
+                        <p:outputLabel for="bmodel" value="Brand model:" />
+                        <p:inputText id="bmodel" value="#{carView.brand.model}" label="Brand model" required="true">
+                            <f:validateLength minimum="2" />
+                            <p:ajax update="msgModel" event="keyup" />
+                        </p:inputText>
+                        <p:message for="bmodel" id="msgModel" display="icon" />
+
+                    </h:panelGrid>
+
+                    <p:commandButton value="Save" update="pnl" class="btn btn-primary btn-block" action="#{carView.savebrand}" icon="pi pi-check" />
+
+
+                </p:panel>
+
+                </h:form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<h:form  id="addcar" class="form-signin">
+    <p:panel id="panel" header="New Car">
+
+        <table  class="table table-bordered table-striped">
+            <tbody>
+            <tr>
+                <th >
+                    <a href="#" class="btn btn-white btn-info btn-bold" data-toggle="modal" data-target="#myModal">
+                        <p:outputLabel for="carname" value="Brand " />
+                        <i class="ace-icon fa fa-plus bigger-120 blue"></i>
+                    </a>
+                    </th>
+                <td>
+                    <p:selectOneMenu  id="carname" filter="true" filterMatchMode="contains" required="true" value="#{carView.brand}" style="width:100%">
+                        <f:selectItem itemLabel="Select car" itemValue="#{null}" noSelectionOption="true"/>
+
+                        <c:forEach items="#{carView.brands}" var="br" >
+                            <f:selectItem  itemLabel="#{br.name}" itemValue="#{br}" />
+                        </c:forEach>
+                    </p:selectOneMenu>
+                    <p:message for="carname" display="icon" />
+
+                </td>
+
+            </tr>
+            <tr>
+                <th ><p:outputLabel for="fyear" value="Year:" /></th>
+                <td>
+                    <p:inputNumber id="fyear" value="#{carView.car.year}" label="Car year" required="true">
+
+                        <p:ajax update="msgFyear" event="keyup" />
+                    </p:inputNumber>
+                    <p:message for="fyear" id="msgFyear" display="icon" />
+                </td>
+            </tr>
+
+            <tr>
+
+                <th ><p:outputLabel for="fcolor" value="Color:" /></th>
+                <td>
+                    <p:selectOneMenu id="fcolor" filter="true" filterMatchMode="contains"  value="#{carView.color}" style="width:100%">
+                        <f:selectItem itemLabel="Select color" itemValue="#{null}" noSelectionOption="true"/>
+                        <c:forEach items="#{carView.icolors}" var="cl" >
+                            <f:selectItem  itemLabel="#{cl.get('name')}" itemValue="#{cl.get('name')}" />
+                        </c:forEach>
+                    </p:selectOneMenu>
+                </td>
+
+            </tr>
+            <tr>
+
+                <th ><p:outputLabel for="fprice" value="Price:" /></th>
+                <td>
+                    <p:inputNumber id="fprice" value="#{carView.car.year}" label="Car year" required="true">
+
+                        <p:ajax update="msgFprice" event="keyup" />
+                    </p:inputNumber>
+                    <p:message for="fprice" id="msgFprice" display="icon" />
+                </td>
+
+            </tr>
+            <tr>
+
+
+                <th >Action</th>
+                <td>
+                    <p:commandButton value="Save" update="panel" styleClass="btn btn-success btn-block" action="#{carView.savecar}"   />
+                    <button type="button" class="btn btn-white btn-default btn-block"  onclick="carFunction(0)">Close</button>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    </p:panel>
+</h:form>
+
+</ui:composition>

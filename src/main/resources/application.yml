@@ -1,7 +1,7 @@
 server:
   port: 9090
   servlet:
-    context-path: /coursjsf
+    context-path: /
 
 #spring:
   #datasource:

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+  <title>Login</title>
+
+
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="theme-color" content="#444"/>
+  <meta charset="UTF-8"/>
+  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+
+
+
+  <!-- Theme style -->
+  <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <h:outputScript library="js" name="jquery-1.12.4.min.js" target="head"/>
+  <h:outputScript library="js" name="bootstrap.min.js" target="head"/>
+
+
+  <style type="text/css">
+
+    body {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #eee;
+    }
+
+    .form-signin {
+      max-width: 330px;
+      padding: 15px;
+      margin: 0 auto;
+    }
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+      margin-bottom: 10px;
+    }
+    .form-signin .checkbox {
+      font-weight: 400;
+    }
+    .form-signin .form-control {
+      position: relative;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      height: auto;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .form-signin .form-control:focus {
+      z-index: 2;
+    }
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+
+  </style>
+</h:head>
+
+<h:body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 style="text-align: center;">Login page</h1>
+      <div class="login-logo" style="background-color:#ffffff">
+        <h3 style="text-align: center; color: #2aabd2">Login infos</h3>
+
+        <div class="alert alert-info" role="alert">
+          <p:link href="#" onclick="myFunction('dialrock','1234')"> Click this to load  <b>Default User </b>  </p:link>
+        </div>
+
+      </div>
+
+    </div>
+
+    <h:form prependId="false" class="form-signin">
+
+      <p:panelGrid columns="1" styleClass="ui-fluid center ui-noborder">
+        <h2>Please login</h2>
+
+        <p:outputLabel value="Login failed!" styleClass="red"
+                       rendered="${!empty param['error']}" />
+
+        <p:inputText id="username" placeholder="User name" class="form-control"/>
+        <p:password id="password" placeholder="Password" class="form-control"/>
+        <div class="col-xs-12">
+          <p:commandButton class="btn btn-success btn-block"  value="Login" ajax="false" />
+        </div>
+       </p:panelGrid>
+
+    </h:form>
+    <div class="social-auth-links text-center" style="color:#ffffff;">
+      <p>- OR -</p>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i
+              class="fa fa-facebook"></i> Sign in using Facebook</a>
+      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i
+              class="fa fa-google-plus"></i> Sign in using Google+</a>
+    </div>
+  </div> <!-- /container -->
+
+  <script>
+    function myFunction(values,input) {
+      //var inputid='#'+input;
+      //$(inputid).val(values);
+      $("#username").val(values);
+      $("#password").val(input);
+    }
+  </script>
+</h:body>
+</html>

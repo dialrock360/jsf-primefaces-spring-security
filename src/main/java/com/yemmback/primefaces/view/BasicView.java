@@ -1,8 +1,8 @@
-package com.codenotfound.primefaces.view;
+package com.yemmback.primefaces.view;
 
-import com.primestap.primefaces.model.Car;
-import com.primestap.primefaces.model.User;
-import com.primestap.primefaces.model.colections.Role;
+import com.yemmback.primefaces.model.Car;
+import com.yemmback.primefaces.model.User;
+import com.yemmback.primefaces.model.colections.Role;
 import org.primefaces.model.UploadedFile;
 
 import javax.annotation.PostConstruct;
