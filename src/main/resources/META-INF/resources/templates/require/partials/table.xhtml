@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+
+
+    <!-- Main table for list -->
+
+    <div class="page-header">
+        <h2 id="Tables">Tables</h2>
+
+        <ui:include src="navlink.xhtml"/>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+
+
+            <h:dataTable class="table" value="#{carView.cars}" var="car" >
+
+                <h:column>
+                    <!-- column header -->
+                    <f:facet name="header">Cars No</f:facet>
+                    <!-- row record -->
+                    #{car.id}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Cars brands</f:facet>
+                    #{car.brand.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars years</f:facet>
+                    #{car.year}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars prices</f:facet>
+                    #{car.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars colors</f:facet>
+                    #{car.color}
+                </h:column>
+
+            </h:dataTable>
+        </div>
+        <div class="col-md-6">
+
+            <h:dataTable class="table table-striped" value="#{carView.cars}" var="car">
+
+                <h:column>
+                    <!-- column header -->
+                    <f:facet name="header">Cars No</f:facet>
+                    <!-- row record -->
+                    #{car.id}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Cars brands</f:facet>
+                    #{car.brand.model}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars years</f:facet>
+                    #{car.year}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars prices</f:facet>
+                    #{car.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars colors</f:facet>
+                    #{car.color}
+                </h:column>
+
+            </h:dataTable>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <h:dataTable class="table table-bordered" value="#{carView.cars}" var="car">
+
+                <h:column>
+                    <!-- column header -->
+                    <f:facet name="header">Cars No</f:facet>
+                    <!-- row record -->
+                    #{car.id}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Cars brands</f:facet>
+                    #{car.brand.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars years</f:facet>
+                    #{car.year}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars prices</f:facet>
+                    #{car.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars colors</f:facet>
+                    #{car.color}
+                </h:column>
+
+            </h:dataTable>
+
+        </div>
+        <div class="col-md-6">
+            <h:dataTable class="table table-condensed" value="#{carView.cars}" var="car">
+
+                <h:column>
+                    <!-- column header -->
+                    <f:facet name="header">Cars No</f:facet>
+                    <!-- row record -->
+                    #{car.id}
+                </h:column>
+
+
+                <h:column>
+                    <f:facet name="header">Cars brands</f:facet>
+                    #{car.brand.model}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars years</f:facet>
+                    #{car.year}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars prices</f:facet>
+                    #{car.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cars colors</f:facet>
+                    #{car.color}
+                </h:column>
+
+            </h:dataTable>
+
+
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-sm-4 col-lg-4 col-xs-12" style="background-color:#ffffff; ">
+            <h4>Filterable Table</h4>
+            <input class="form-control" id="myInput" type="text" placeholder="Search.."/>
+
+            <div>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th >No</th>
+                        <th >Name</th>
+                        <th >Years</th>
+                        <th >Colors</th>
+                        <th >Prices</th>
+                    </tr>
+                    <tbody id="myTable">
+                    <ui:repeat var="car" value="#{carView.cars}"  >
+                        <tr>
+                            <td >#{car.id}</td>
+                            <td >#{car.brand.name}</td>
+                            <td >#{car.year}</td>
+                            <td >#{car.color}</td>
+                            <td >#{car.price}</td>
+                        </tr>
+                    </ui:repeat>
+                    </tbody>
+                </table>
+
+            <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+
+            </div>
+
+    </div>
+        <div class="col-sm-4 col-lg-4 col-xs-12" style="background-color:#e7e7e7;">
+            <div >
+                <h4>Filterable List</h4>
+                <p>Type something in the input field to search the list for specific items:</p>
+                <input class="form-control" id="myInputlist" type="text" placeholder="Search.."/>
+                <br/>
+                <ul class="list-group" id="myList">
+                    <c:forEach items="#{carView.cars}" var="cr" >
+                        <li class="list-group-item #{cr.id==10? 'active' : ''} #{cr.id==4? 'info' : ''}  #{cr.id==10 ? 'danger' : '' }  #{cr.id==9 ? 'warning' : '' }">
+
+                            <a href="#"> <h:outputText value="#{cr.brand.name}: #{cr.brand.model},#{cr.year}, #{cr.color}"/>
+                                <span class="badge"><h:outputText value="#{cr.price}"/></span>
+                            </a>
+                        </li>
+                    </c:forEach>
+                </ul>
+
+            </div>
+
+            <script>
+                $(document).ready(function(){
+
+                });
+            </script>
+
+        </div>
+        <div class="col-sm-4 col-lg-4 col-xs-12" style="background-color:#ffffff;">
+
+            <div  >
+                <h4>Filter Anything</h4>
+                <p>Type something in the input field to search for a specific text inside the div element with id="myDIV":</p>
+                <input class="form-control" id="myInputAnything" type="text" placeholder="Search.."/>
+                <div id="myDIVAnything">
+                    <div class="row  ">
+                        <c:forEach  items="#{carView.cars}" var="br" >
+
+                            <div class="col-md-4">
+                                <div class="thumbnail">
+                                    <a href="/images/gallerie/brands/#{br.brand.displayName}.jpg" target="_blank">
+                                        <h:graphicImage library="images" name="gallerie/brands/#{br.brand.displayName}.jpg" width="32" height="32" class="img-responsive" styleClass="ui-theme" alt="#{br.brand.name}"/>
+
+                                        <div class="caption">
+                                            <h6>{br.brand.name}.</h6>
+                                            <p>  <b><em>#{br.brand.name}</em> </b> #{br.brand.model} #{br.year} #{br.color} it is #{br.soldState} for <b>#{br.price}</b>.</p>
+                                            <button class="btn btn-#{br.soldState?'success':'info' }">#{br.soldState?'Sold':'Sale' }</button>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </c:forEach>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</ui:composition>

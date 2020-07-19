@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+    <style>
+        .gcontainer {
+            position: relative;
+        }
+
+        .gimage {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .gcontainer:hover .gimage {
+            opacity: 0.3;
+        }
+
+        .gcontainer:hover .middle {
+            opacity: 1;
+        }
+
+        .gcontainer .text {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+    </style>
+
+    <div class="row" id="template">
+        <hr/><hr/>
+        <div class="col-sm-12 col-lg-12 col-xs-12"  >
+
+            <!-- Main Dropdown for menus -->
+            <div class="page-header">
+                <h1>W3Schools' Bootstrap Templates</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumbnail gcontainer">
+                        <a href="https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_social&amp;stacked=h" target="_blank">
+                            <h:graphicImage library="images" name="template/social.jpg" style="width:100%" class="img-responsive gimage" alt="Model social"/>
+
+                            <div class="caption">
+                                <div class="middle">
+                                    <div class="text">Model social</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail gcontainer">
+                        <a href="https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_blog&amp;stacked=h" target="_blank">
+                            <h:graphicImage library="images" name="template/blog.jpg" style="width:100%" class="img-responsive gimage" alt="Model blog"/>
+
+                            <div class="caption">
+                                <div class="middle">
+                                    <div class="text">Model blog</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail gcontainer">
+                        <a href="https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_portfolio&amp;stacked=h" target="_blank">
+                            <h:graphicImage library="images" name="template/portefolio.jpg" style="width:100%" class="img-responsive gimage" alt="Model blog"/>
+
+                            <div class="caption">
+                                <div class="middle">
+                                    <div class="text">Model portefolio</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail gcontainer">
+                        <a href="https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_webpage&amp;stacked=h" target="_blank">
+                            <h:graphicImage library="images" name="template/webpage.jpg" style="width:100%" class="img-responsive gimage" alt="Model blog"/>
+
+                            <div class="caption">
+                                <div class="middle">
+                                    <div class="text">Model webpage</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="thumbnail gcontainer">
+                        <a href="https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_store&amp;stacked=h" target="_blank">
+                            <h:graphicImage library="images" name="template/store.jpg" style="width:100%" class="img-responsive gimage" alt="Model store"/>
+
+                            <div class="caption">
+                                <div class="middle">
+                                    <div class="text">Model store</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail gcontainer">
+                        <a href="https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_analytics&amp;stacked=h" target="_blank">
+                            <h:graphicImage library="images" name="template/analytic.jpg" style="width:100%" class="img-responsive gimage" alt="Model blog"/>
+
+                            <div class="caption">
+                                <div class="middle">
+                                    <div class="text">Model analytic</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail gcontainer">
+                        <a href="https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_marketing&amp;stacked=h" target="_blank">
+                            <h:graphicImage library="images" name="template/marketing.jpg" style="width:100%" class="img-responsive gimage" alt="Model blog"/>
+
+                            <div class="caption">
+                                <div class="middle">
+                                    <div class="text">Model marketing</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail gcontainer">
+                        <a href="https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_temp_marketing2&amp;stacked=h" target="_blank">
+                            <h:graphicImage library="images" name="template/marketing2.jpg" style="width:100%" class="img-responsive gimage" alt="Model store"/>
+
+                            <div class="caption">
+                                <div class="middle">
+                                    <div class="text">Model marketing2</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</ui:composition>

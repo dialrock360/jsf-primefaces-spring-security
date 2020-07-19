@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core" >
+
+
+
+
+    <!-- Main List groups for List -->
+    <div class="page-header">
+        <h2 id="Lists">List groups</h2>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <ul class="list-group">
+                <c:forEach  items="#{carView.brands}" var="br" >
+
+                    <li class="list-group-item"> #{br.name}  </li>
+                </c:forEach>
+            </ul>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+            <div class="list-group">
+                <c:forEach  items="#{carView.cars}" var="br" >
+                    <a href="#" class="list-group-item  #{br.id==1?'active':'' }">
+                        <h:graphicImage library="images" name="gallerie/brands/#{br.brand.displayName}.jpg" width="32" height="32" class="img-responsive" styleClass="ui-theme" alt="#{br.brand.name}"/>
+                        #{br.brand.name}   #{br.year}
+                    </a>
+                </c:forEach>
+
+            </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+            <div class="list-group">
+                <c:forEach  items="#{carView.cars}" var="br" >
+
+
+                    <a href="#" class="list-group-item  #{br.id==6?'active':'' }">
+
+                        <h4 class="list-group-item-heading">
+
+                            #{br.brand.name}
+
+
+                        </h4>
+                        <p class="list-group-item-text">
+                            <h:graphicImage library="images" name="gallerie/brands/#{br.brand.displayName}.jpg" width="16" height="16" class="img-responsive" styleClass="ui-theme" alt="#{br.brand.name}"/>
+                            : #{br.brand.name} #{br.brand.model} #{br.year} #{br.color} it is #{br.soldState} for <b>#{br.price}</b>.</p>
+                    </a>
+                </c:forEach>
+
+
+            </div>
+        </div><!-- /.col-sm-4 -->
+    </div>
+
+
+
+</ui:composition>

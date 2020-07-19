@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:head>
+    <title>Spring security Starter</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+
+    <meta name="theme-color" content="#444"/>
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <!-- Theme style -->
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    <h:outputScript library="js" name="jquery-1.12.4.min.js" target="head"/>
+    <h:outputScript library="js" name="bootstrap.min.js" target="head"/>
+    <style type="text/css">
+        body .load-bar {
+            margin-top: -20px;
+        }
+        /* below css hides growls in small screens and makes messages visible */
+        @media (max-width: 768px) {
+
+            body div.ui-growl {
+                display: none;
+            }
+
+            body div.ui-messages {
+                display: block;
+            }
+
+        }
+
+        /* below css hides messages in medium/big devices and makes growl visible in such devices */
+        @media (min-width: 769px) {
+            body div.ui-growl {
+                display: block;
+            }
+
+            body div.ui-messages {
+                display: none;
+            }
+        }
+
+        body.login-page {
+            background-color: transparent;
+        }
+
+        html {
+            background: url(#{resource[ 'images/404.png' ]}) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        @media (max-width: 768px) {
+            html {
+                background-image: url("#{resource['images/404.png']}");
+            }
+        }
+
+    </style>
+</h:head>
+
+
+
+<h:body styleClass="hold-transition login-page cdk">
+
+
+    <div class="col-sm-3 col-lg-2">
+        <br/><br/>
+        <h1 class="page-header">
+            <h:graphicImage library="images" name="avatarx.jpg" class="img-circle" alt="Dev Image"/>
+        </h1>
+
+        <nav class="navbar navbar-default navbar-fixed-side">
+
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="#">
+                        <h:form onsubmit="this.action='#{request.contextPath}/logout';"
+                                class="logout-form">
+                            <p:commandButton value="Logout" ajax="false" />
+                        </h:form>
+                    </a>
+                </li>
+                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+                <li>
+                    <a href="#">
+                        <h:link value="Home" outcome="index" />
+                    </a>
+                </li>
+                <li><a href="#template">Bootstrap Templates</a></li>
+                <li><a href="#">Datatable</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="#">
+                        <h:link value="Login page" outcome="login" />
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <h:link value="Register page" outcome="register" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h:link value="404 page" outcome="404" />
+                    </a>
+                </li>
+
+                <li>
+                    <h:link value="THIS page + Param " outcome="login" >
+                        <f:param name="username" value="mkyong" />
+                    </h:link>
+                </li>
+
+            </ul>
+        </nav>
+
+    </div>
+
+</h:body>
+</html>

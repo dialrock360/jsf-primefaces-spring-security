@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+
+
+
+    <!-- Main carrocet for badges -->
+    <div class="page-header">
+        <h1>Thumbnails</h1>
+    </div>
+    <div class="page-header">
+        <h2 id="Labels">Labels and Switch</h2>
+
+        <ui:include src="navlink.xhtml"/>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6  col-lg-6 col-xs-12"  >
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Panel title</h3>
+                    <h:graphicImage library="images" name="gallerie/dock/rss.png" width="250" height="250" class="img-thumbnail" alt="img 1 thumbnail"/>
+
+                </div>
+                src/main/resources/META-INF/resources/images/gallerie/img1.jpg
+                <div class="panel-body">
+
+
+                    <div class="row">
+                        <div class="col-sm-6  col-lg-6 col-xs-12"  >
+                            <h3 style="margin-top:0">Manual</h3>
+                            <p:commandButton type="button" onclick="PF('switcher').previous();"
+                                             icon="pi pi-caret-left" id="prev" style="margin-bottom: 5px"/>
+                            <p:commandButton type="button" onclick="PF('switcher').next();"
+                                             icon="pi pi-caret-right" id="next" style="margin-bottom: 5px"/>
+
+                            <p:imageSwitch effect="wipe" widgetVar="switcher" id="manuelSwitcher"
+                                           slideshowAuto="false">
+                                <ui:repeat value="#{basicView.images}" var="image" id="manuelSwitcherImages">
+                                    <h:graphicImage library="images" name="gallerie/#{image}"   class="img-responsive" alt="img #{image}"/>
+                                </ui:repeat>
+                            </p:imageSwitch>
+
+
+                        </div>
+                        <div class="col-sm-6  col-lg-6 col-xs-12"  >
+
+                            <h3>Fade</h3>
+                            <p:imageSwitch effect="fade" id="fadeEffect">
+                                <ui:repeat value="#{basicView.images}" var="image" id="fadeEffectImages">
+                                    <h:graphicImage library="images" name="gallerie/#{image}"   class="img-responsive" alt="img #{image}"/>
+                                </ui:repeat>
+                            </p:imageSwitch>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6  col-lg-6 col-xs-12"  >
+                            <h3>Zoom</h3>
+                            <p:imageSwitch effect="zoom">
+                                <ui:repeat value="#{basicView.images}" var="image">
+                                    <h:graphicImage library="images" name="gallerie/#{image}"   class="img-responsive" alt="img #{image}"/>
+                                </ui:repeat>
+                            </p:imageSwitch>
+
+                        </div>
+                        <div class="col-sm-6  col-lg-6 col-xs-12"  >
+
+                            <h3>TurnDown</h3>
+                            <p:imageSwitch effect="turnDown">
+                                <ui:repeat value="#{basicView.images}" var="image">
+                                    <h:graphicImage library="images" name="gallerie/#{image}"   class="img-responsive" alt="img #{image}"/>
+                                </ui:repeat>
+                            </p:imageSwitch>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6  col-lg-6 col-xs-12"  >
+                            <h3>Shuffle</h3>
+                            <p:imageSwitch effect="shuffle">
+                                <ui:repeat value="#{basicView.images}" var="image">
+                                    <h:graphicImage library="images" name="gallerie/#{image}"   class="img-responsive" alt="img #{image}"/>
+                                </ui:repeat>
+                            </p:imageSwitch>
+                        </div>
+                        <div class="col-sm-6  col-lg-6 col-xs-12"  >
+                            <h3>Dialog Integration</h3>
+                            <p:commandButton type="button" value="Show" onclick="PF('dlg').show()" icon="pi pi-home"/>
+
+                            <p:dialog header="Images" widgetVar="dlg" modal="true"
+                                      draggable="false" resizable="false">
+
+                                <p:imageSwitch effect="fade">
+                                    <ui:repeat value="#{basicView.images}" var="image">
+                                        <h:graphicImage library="images" name="gallerie/#{image}"   class="img-responsive" alt="img #{image}"/>
+                                    </ui:repeat>
+                                </p:imageSwitch>
+                            </p:dialog>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6  col-lg-6 col-xs-12"  >
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Labels title</h3>
+                </div>
+                <div class="panel-body">
+                    <h1>
+                        <span class="label label-default">Default</span>
+                        <span class="label label-primary">Primary</span>
+                        <span class="label label-success">Success</span>
+                        <span class="label label-info">Info</span>
+                        <span class="label label-warning">Warning</span>
+                        <span class="label label-danger">Danger</span>
+                    </h1>
+                    <h2>
+                        <span class="label label-default">Default</span>
+                        <span class="label label-primary">Primary</span>
+                        <span class="label label-success">Success</span>
+                        <span class="label label-info">Info</span>
+                        <span class="label label-warning">Warning</span>
+                        <span class="label label-danger">Danger</span>
+                    </h2>
+                    <h3>
+                        <span class="label label-default">Default</span>
+                        <span class="label label-primary">Primary</span>
+                        <span class="label label-success">Success</span>
+                        <span class="label label-info">Info</span>
+                        <span class="label label-warning">Warning</span>
+                        <span class="label label-danger">Danger</span>
+                    </h3>
+                    <h4>
+                        <span class="label label-default">Default</span>
+                        <span class="label label-primary">Primary</span>
+                        <span class="label label-success">Success</span>
+                        <span class="label label-info">Info</span>
+                        <span class="label label-warning">Warning</span>
+                        <span class="label label-danger">Danger</span>
+                    </h4>
+                    <h5>
+                        <span class="label label-default">Default</span>
+                        <span class="label label-primary">Primary</span>
+                        <span class="label label-success">Success</span>
+                        <span class="label label-info">Info</span>
+                        <span class="label label-warning">Warning</span>
+                        <span class="label label-danger">Danger</span>
+                    </h5>
+                    <h6>
+                        <span class="label label-default">Default</span>
+                        <span class="label label-primary">Primary</span>
+                        <span class="label label-success">Success</span>
+                        <span class="label label-info">Info</span>
+                        <span class="label label-warning">Warning</span>
+                        <span class="label label-danger">Danger</span>
+                    </h6>
+                    <p>
+                        <span class="label label-default">Default</span>
+                        <span class="label label-primary">Primary</span>
+                        <span class="label label-success">Success</span>
+                        <span class="label label-info">Info</span>
+                        <span class="label label-warning">Warning</span>
+                        <span class="label label-danger">Danger</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</ui:composition>
