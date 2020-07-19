@@ -1,0 +1,13 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /coursjsf
+
+#spring:
+  #datasource:
+  #  url: jdbc:mysql://localhost:3306/hospital_m2gl?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDateTimeCode=false&serverTimezone=UTC
+  #  username: root
+ #   password:
+ # jpa:
+   # hibernate:
+     # ddl-auto: update
